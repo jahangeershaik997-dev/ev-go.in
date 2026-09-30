@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ev-go | Zero-commission EV rides in Hyderabad</title>
+<meta name="description" content="ev-go is launching in Hyderabad. Drivers keep 100% of the fare. Riders get clean, quiet, fairly priced EV rides. Join early.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ev-go | Zero-commission EV rides in Hyderabad">
+<meta property="og:description" content="Drivers keep 100% of the fare. Riders get clean, quiet, fairly priced EV rides. Launching soon in Hyderabad.">
+<meta property="og:url" content="https://ev-go.in/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ev-go | Zero-commission EV rides in Hyderabad">
+<meta name="twitter:description" content="Drivers keep 100% of the fare. Launching soon in Hyderabad.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://ev-go.in/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B7A4B'/%3E%3Cpath d='M18 4 8 18h7l-1 10 10-14h-7z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+<!-- Analytics (optional, cookie-free): paste a privacy-friendly script here, e.g. Plausible or Umami. -->
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#000;font-family:Inter,"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;font-size:1.0625rem;line-height:1.5;padding-bottom:5rem}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem;padding-left:max(1.25rem,env(safe-area-inset-left));padding-right:max(1.25rem,env(safe-area-inset-right))}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:1.25rem}
+:focus-visible{outline:3px solid #0B7A4B;outline-offset:3px}
+
+/* header */
+header{border-bottom:1px solid #000}
+header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:64px}
+.mark{font-weight:700;font-size:1.375rem;letter-spacing:-.02em;text-decoration:none}
+.mark i{font-style:normal;color:#0B7A4B}
+.nav{font-weight:500;text-decoration:none;border-bottom:2px solid #0B7A4B;padding:.25rem 0}
+
+/* hero */
+.hero{padding:4.5rem 0 3.5rem}
+.hero h1{grid-column:1/-1;margin:0;font-weight:700;font-size:clamp(2.75rem,9.5vw,7.25rem);line-height:.98;letter-spacing:-.04em;max-width:11ch}
+.hero .sub{grid-column:1/-1;margin:2rem 0 0;max-width:34rem;font-size:1.25rem;line-height:1.45}
+.hero .cta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.25rem}
+.hero .soon{grid-column:1/-1;margin:1.5rem 0 0;color:#595959}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 1.5rem;font:inherit;font-weight:700;text-decoration:none;border:2px solid #000;background:#fff;color:#000;cursor:pointer;border-radius:0}
+.btn.primary{background:#0B7A4B;border-color:#0B7A4B;color:#fff}
+.btn:hover{background:#000;border-color:#000;color:#fff}
+.btn[disabled]{opacity:.55;cursor:default}
+
+/* sections */
+section{border-top:1px solid #000;padding:3rem 0}
+.label{grid-column:1/-1;margin:0 0 1.5rem;font-weight:700;font-size:1.0625rem}
+.body{grid-column:1/-1}
+@media(min-width:800px){.label{grid-column:1/4;margin:0}.body{grid-column:4/-1}}
+
+/* facts */
+.facts{display:grid;grid-template-columns:1fr;gap:0}
+.fact{border-top:1px solid #D9D9D9;padding:1.25rem 0 1.5rem}
+.fact:first-child{border-top:0;padding-top:0}
+.fact b{display:block;font-size:clamp(3.5rem,11vw,5.5rem);line-height:1;letter-spacing:-.04em;color:#0B7A4B;font-weight:700}
+.fact span{display:block;margin-top:.5rem;max-width:16rem}
+@media(min-width:800px){.facts{grid-template-columns:repeat(3,1fr);column-gap:1.25rem}.fact{border-top:0;padding:0}.fact b{font-size:clamp(3rem,5.6vw,4.5rem);white-space:nowrap}}
+
+.offer{font-size:clamp(1.5rem,3.6vw,2.25rem);line-height:1.2;letter-spacing:-.02em;font-weight:500;margin:0;max-width:30ch}
+.offer+p{margin:1.25rem 0 0;max-width:36rem;color:#595959}
+
+.steps{display:grid;gap:2rem}
+@media(min-width:800px){.steps{grid-template-columns:1fr 1fr;column-gap:1.25rem}}
+.steps h3{margin:0 0 .75rem;font-size:1.0625rem}
+.steps ol{margin:0;padding-left:1.25rem}
+.steps li{margin:0 0 .5rem;padding-left:.25rem}
+
+/* forms */
+.tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid #000;margin-bottom:1.75rem}
+.tab{flex:1 1 auto;min-height:52px;padding:0 1rem;font:inherit;font-weight:500;background:#fff;color:#595959;border:0;border-bottom:4px solid transparent;cursor:pointer;text-align:left}
+.tab[aria-selected="true"]{color:#000;font-weight:700;border-bottom-color:#0B7A4B}
+.js .panel[hidden]{display:none}
+.fields{display:grid;gap:1.25rem;max-width:34rem}
+.field label{display:block;font-weight:500;margin-bottom:.375rem}
+.field input[type=text],.field input[type=tel],.field select{width:100%;min-height:52px;padding:0 .875rem;font:inherit;color:#000;background:#fff;border:2px solid #000;border-radius:0;appearance:none;-webkit-appearance:none}
+.field select{background-image:linear-gradient(45deg,transparent 50%,#000 50%),linear-gradient(135deg,#000 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:2.5rem}
+.field .hint{margin:.25rem 0 0;color:#595959;font-size:.9375rem}
+.field.err input,.field.err select{border-color:#B00020}
+.field .msg{display:none;margin:.375rem 0 0;color:#B00020;font-weight:500;font-size:.9375rem}
+.field.err .msg{display:block}
+.consent{display:flex;gap:.75rem;align-items:flex-start}
+.consent input{width:24px;height:24px;margin:.125rem 0 0;flex:none;accent-color:#0B7A4B}
+.privacy{margin:0;color:#595959;font-size:.9375rem;max-width:34rem}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.status{margin-top:1.25rem;max-width:34rem;min-height:1.5rem;font-weight:500}
+.status.ok{color:#0B7A4B}.status.bad{color:#B00020}
+.after{margin-top:1rem}
+
+footer{border-top:1px solid #000;padding:2rem 0 3rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+footer p{margin:0}
+
+.wa{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:10;display:inline-flex;align-items:center;min-height:52px;padding:0 1.25rem;background:#0B7A4B;color:#fff;font-weight:700;text-decoration:none;border:2px solid #fff;outline:1px solid #0B7A4B}
+.wa:hover{background:#000;outline-color:#000}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="ev-go home">ev<i>-</i>go</a>
+    <a class="nav" href="#join" data-tab="driver">Join early</a>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap grid">
+    <h1>Zero-commission EV rides in Hyderabad.</h1>
+    <p class="sub">Drivers keep 100% of the fare. Riders get clean, quiet, fairly priced rides.</p>
+    <div class="cta">
+      <a class="btn primary" href="#join" data-tab="driver">I'm a driver</a>
+      <a class="btn" href="#join" data-tab="rider">I want to ride</a>
+    </div>
+    <p class="soon">Launching soon in Hyderabad. E-autos first, then e-bikes and e-cabs.</p>
+  </div>
+</div>
+
+<section aria-label="Key facts">
+  <div class="wrap grid">
+    <p class="label">What drivers get</p>
+    <div class="body facts">
+      <div class="fact"><b>0%</b><span>Commission taken from the fare</span></div>
+      <div class="fact"><b>100%</b><span>Of every fare goes to the driver</span></div>
+      <div class="fact"><b>30 days</b><span>Free for founding drivers</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap grid">
+    <p class="label">Founding drivers</p>
+    <div class="body">
+      <p class="offer">The first 100 drivers get 30 days free and 25% off for 6 months.</p>
+      <p>After the free period, drivers pay one flat fee, never a cut of the fare. Plans are shared before launch.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap grid">
+    <p class="label">How it works</p>
+    <div class="body steps">
+      <div>
+        <h3>Drivers</h3>
+        <ol>
+          <li>Sign up below.</li>
+          <li>We call you on WhatsApp to check your documents.</li>
+          <li>Go online at launch and keep every rupee of the fare.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Riders</h3>
+        <ol>
+          <li>Join the list with your area.</li>
+          <li>We message you when rides start near you.</li>
+          <li>Book an EV, see the fare first, and ride.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap grid">
+    <p class="label">Join early</p>
+    <div class="body">
+      <div class="tabs" role="tablist" aria-label="Sign up as">
+        <button class="tab" role="tab" id="t-driver" aria-controls="p-driver" aria-selected="true" type="button" data-tab="driver">Driver</button>
+        <button class="tab" role="tab" id="t-rider" aria-controls="p-rider" aria-selected="false" type="button" data-tab="rider">Rider</button>
+        <button class="tab" role="tab" id="t-fleet" aria-controls="p-fleet" aria-selected="false" type="button" data-tab="fleet">Fleet or company</button>
+      </div>
+
+      <!-- DRIVER -->
+      <div class="panel" id="p-driver" role="tabpanel" aria-labelledby="t-driver">
+        <form data-type="driver" novalidate>
+          <div class="fields">
+            <div class="field"><label for="d-name">Full name</label><input id="d-name" name="name" type="text" autocomplete="name" required><p class="msg">Enter your name.</p></div>
+            <div class="field"><label for="d-mobile">Mobile number</label><input id="d-mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required><p class="msg">Enter a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
+            <div class="field"><label for="d-vehicle">Vehicle type</label>
+              <select id="d-vehicle" name="vehicle_type" required><option value="">Choose one</option><option>E-auto</option><option>E-bike</option><option>E-cab</option><option>I don't have an EV yet</option></select><p class="msg">Choose a vehicle type.</p></div>
+            <div class="field"><label for="d-own">Do you own the vehicle?</label>
+              <select id="d-own" name="ownership" required><option value="">Choose one</option><option>Own</option><option>Rent</option><option>Planning to buy</option></select><p class="msg">Choose one.</p></div>
+            <div class="field"><label for="d-area">Where in Hyderabad do you drive?</label>
+              <select id="d-area" name="area" required><option value="">Choose an area</option><option>HITEC City</option><option>Madhapur</option><option>Gachibowli</option><option>Kondapur</option><option>Kukatpally</option><option>Miyapur</option><option>Ameerpet</option><option>Other</option></select><p class="msg">Choose an area.</p></div>
+            <div class="field"><label for="d-lang">Preferred language</label>
+              <select id="d-lang" name="language" required><option value="">Choose one</option><option>Telugu</option><option>Hindi</option><option>English</option><option>Urdu</option></select><p class="msg">Choose a language.</p></div>
+            <div class="field consent"><input id="d-consent" name="consent" type="checkbox" required><label for="d-consent">I agree to be contacted by ev-go on WhatsApp or phone about the launch.</label></div>
+            <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <p class="privacy">We use your details only to contact you about the ev-go launch, as per India's Digital Personal Data Protection Act, 2023. Ask us on WhatsApp to delete them any time.</p>
+            <div><button class="btn primary" type="submit">Join as a driver</button></div>
+          </div>
+          <div class="status" role="status" aria-live="polite"></div>
+          <div class="after"></div>
+        </form>
+      </div>
+
+      <!-- RIDER -->
+      <div class="panel" id="p-rider" role="tabpanel" aria-labelledby="t-rider" hidden>
+        <form data-type="rider" novalidate>
+          <div class="fields">
+            <div class="field"><label for="r-name">Full name</label><input id="r-name" name="name" type="text" autocomplete="name" required><p class="msg">Enter your name.</p></div>
+            <div class="field"><label for="r-mobile">Mobile number</label><input id="r-mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required><p class="msg">Enter a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
+            <div class="field"><label for="r-area">Where do you ride from most?</label>
+              <select id="r-area" name="area" required><option value="">Choose an area</option><option>HITEC City</option><option>Madhapur</option><option>Gachibowli</option><option>Kondapur</option><option>Kukatpally</option><option>Miyapur</option><option>Ameerpet</option><option>Other</option></select><p class="msg">Choose an area.</p></div>
+            <div class="field"><label for="r-ride">What do you mostly ride for?</label>
+              <select id="r-ride" name="ride_type" required><option value="">Choose one</option><option>Office commute</option><option>Metro first or last mile</option><option>Airport</option><option>Other</option></select><p class="msg">Choose one.</p></div>
+            <div class="field consent"><input id="r-consent" name="consent" type="checkbox" required><label for="r-consent">I agree to be contacted by ev-go on WhatsApp or phone about the launch.</label></div>
+            <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <p class="privacy">We use your details only to contact you about the ev-go launch, as per India's Digital Personal Data Protection Act, 2023. Ask us on WhatsApp to delete them any time.</p>
+            <div><button class="btn primary" type="submit">Join the rider list</button></div>
+          </div>
+          <div class="status" role="status" aria-live="polite"></div>
+          <div class="after"></div>
+        </form>
+      </div>
+
+      <!-- FLEET -->
+      <div class="panel" id="p-fleet" role="tabpanel" aria-labelledby="t-fleet" hidden>
+        <form data-type="fleet" novalidate>
+          <div class="fields">
+            <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required><p class="msg">Enter your name.</p></div>
+            <div class="field"><label for="f-company">Company (optional)</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
+            <div class="field"><label for="f-mobile">Mobile number</label><input id="f-mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required><p class="msg">Enter a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
+            <div class="field"><label for="f-type">You are a</label>
+              <select id="f-type" name="org_type" required><option value="">Choose one</option><option>Fleet owner</option><option>IT park or company</option><option>School or hospital</option></select><p class="msg">Choose one.</p></div>
+            <div class="field"><label for="f-size">Number of vehicles or employees</label><input id="f-size" name="size" type="text" inputmode="numeric" placeholder="For example, 25" required><p class="msg">Enter a number.</p></div>
+            <div class="field"><label for="f-area">Area</label>
+              <select id="f-area" name="area" required><option value="">Choose an area</option><option>HITEC City</option><option>Madhapur</option><option>Gachibowli</option><option>Kondapur</option><option>Kukatpally</option><option>Miyapur</option><option>Ameerpet</option><option>Other</option></select><p class="msg">Choose an area.</p></div>
+            <div class="field consent"><input id="f-consent" name="consent" type="checkbox" required><label for="f-consent">I agree to be contacted by ev-go on WhatsApp or phone about the launch.</label></div>
+            <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <p class="privacy">We use your details only to contact you about the ev-go launch, as per India's Digital Personal Data Protection Act, 2023. Ask us on WhatsApp to delete them any time.</p>
+            <div><button class="btn primary" type="submit">Register interest</button></div>
+          </div>
+          <div class="status" role="status" aria-live="polite"></div>
+          <div class="after"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>ev-go</b>, Hyderabad</p>
+    <p><a href="https://wa.me/919059314625?text=Hi%20ev-go%2C%20I%20have%20a%20question">WhatsApp +91 90593 14625</a></p>
+    <p>Made in Hyderabad</p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/919059314625?text=Hi%20ev-go%2C%20I%20want%20to%20join%20as%20a%20driver" aria-label="Chat with ev-go on WhatsApp">Chat on WhatsApp</a>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* Tabs */
+var tabs=[].slice.call(document.querySelectorAll('.tab'));
+function showTab(name){
+  tabs.forEach(function(t){
+    var on=t.dataset.tab===name;
+    t.setAttribute('aria-selected',on?'true':'false');
+    document.getElementById('p-'+t.dataset.tab).hidden=!on;
+  });
+}
+tabs.forEach(function(t){t.addEventListener('click',function(){showTab(t.dataset.tab)})});
+document.querySelectorAll('a[data-tab]').forEach(function(a){a.addEventListener('click',function(){showTab(a.dataset.tab)})});
+if(/^#(driver|rider|fleet)$/.test(location.hash)){showTab(location.hash.slice(1))}
+
+/* Helpers */
+function cleanMobile(v){
+  var d=String(v).replace(/\D/g,'');
+  if(d.length===12&&d.indexOf('91')===0)d=d.slice(2);
+  if(d.length===11&&d.charAt(0)==='0')d=d.slice(1);
+  return d;
+}
+function tooManyTries(){
+  try{
+    var now=Date.now(),list=JSON.parse(localStorage.getItem('evgo_tries')||'[]').filter(function(t){return now-t<3600000});
+    if(list.length>=3)return true;
+    list.push(now);localStorage.setItem('evgo_tries',JSON.stringify(list));
+  }catch(e){}
+  return false;
+}
+function setErr(field,on){field.classList.toggle('err',on)}
+
+/* Submit */
+document.querySelectorAll('form[data-type]').forEach(function(form){
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var status=form.querySelector('.status'),after=form.querySelector('.after'),btn=form.querySelector('button[type=submit]');
+    status.className='status';status.textContent='';after.innerHTML='';
+    var ok=true,firstBad=null;
+    form.querySelectorAll('.field').forEach(function(f){
+      var el=f.querySelector('input,select');if(!el||!el.required)return;
+      var bad;
+      if(el.type==='checkbox')bad=!el.checked;
+      else if(el.name==='mobile')bad=!/^[6-9]\d{9}$/.test(cleanMobile(el.value));
+      else bad=!el.value.trim();
+      setErr(f,bad);
+      if(bad){ok=false;if(!firstBad)firstBad=el}
+    });
+    var consent=form.querySelector('input[name=consent]');
+    if(consent&&!consent.checked){status.className='status bad';status.textContent='Tick the box to agree to be contacted.'}
+    if(!ok){if(firstBad)firstBad.focus();return}
+
+    var data={type:form.dataset.type,page:location.href,
+      utm_source:new URLSearchParams(location.search).get('utm_source')||'',
+      utm_medium:new URLSearchParams(location.search).get('utm_medium')||''};
+    new FormData(form).forEach(function(v,k){if(k!=='consent')data[k]=String(v).trim().slice(0,200)});
+    data.mobile=cleanMobile(data.mobile);
+
+    if(data.website){status.className='status ok';status.textContent="You're on the list. We'll WhatsApp you before launch.";return} /* honeypot */
+    if(tooManyTries()){status.className='status bad';status.textContent='Too many tries. Please wait an hour or message us on WhatsApp.';return}
+
+    btn.disabled=true;var label=btn.textContent;btn.textContent='Sending';
+    try{
+      /* Apps Script web app that saves sign-ups to Google Sheets (see SETUP.md) */
+      var res=await fetch('https://script.google.com/macros/s/AKfycby2r_YG4OmbcLa_ZYXqsnTus9Ty8ZsEoKFZPXVHFIWu685k1UtIK7uCmqgCNRFJlUOC/exec',{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
+      var out=await res.json();
+      if(out.ok){
+        status.className='status ok';status.textContent=out.message||"You're on the list. We'll WhatsApp you before launch.";
+        form.reset();
+        if(data.type==='driver'){
+          after.innerHTML='<a class="btn" href="https://wa.me/919059314625?text='+encodeURIComponent('Hi ev-go, I just signed up as a driver. My name is '+data.name+' and I drive in '+data.area+'.')+'">Message us on WhatsApp</a>';
+        }
+      }else{
+        status.className='status bad';status.textContent=out.message||'Something went wrong. Message us on WhatsApp instead.';
+      }
+    }catch(err){
+      status.className='status bad';status.textContent='Could not send. Check your internet and try again, or message us on WhatsApp.';
+    }
+    btn.disabled=false;btn.textContent=label;
+  });
+});
+</script>
+</body>
+</html>
