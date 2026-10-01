@@ -120,6 +120,30 @@ footer a{display:flex;align-items:center;min-height:44px}
 body.typing .wa{display:none}
 .wa{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:10;display:inline-flex;align-items:center;min-height:52px;padding:0 1.25rem;background:#0B7A4B;color:#fff;font-weight:700;text-decoration:none;border:2px solid #fff;outline:1px solid #0B7A4B}
 .wa:hover{background:#000;outline-color:#000}
+.calc-intro{margin:0 0 1.5rem;font-size:clamp(1.5rem,3.6vw,2.25rem);line-height:1.2;letter-spacing:-.02em;font-weight:500;max-width:30ch}
+.ctab{flex:1 1 auto;min-height:52px;padding:0 1rem;font:inherit;font-weight:500;background:#fff;color:#595959;border:0;border-bottom:4px solid transparent;cursor:pointer;text-align:left;border-radius:0}
+.ctab[aria-selected="true"]{color:#000;font-weight:700;border-bottom-color:#0B7A4B}
+.cpanel[hidden]{display:none}
+.cgrid{display:grid;gap:1.25rem;max-width:34rem}
+.out{margin-top:2rem;border-top:2px solid #000;padding-top:1.25rem;max-width:40rem}
+.out table{width:100%;border-collapse:collapse;font-size:1rem}
+.out th,.out td{padding:.625rem 0;text-align:right;border-bottom:1px solid #D9D9D9;font-weight:400}
+.out th{font-weight:700}
+.out th:first-child,.out td:first-child{text-align:left}
+.out th+th,.out td+td{padding-left:1rem}
+.out tr.total td,.out tr.total th{font-weight:700;border-bottom:2px solid #000}
+.big{display:block;font-size:clamp(2.25rem,7vw,3.5rem);line-height:1.05;letter-spacing:-.03em;font-weight:700;color:#0B7A4B;margin:.25rem 0 .5rem}
+.big.neg{color:#B00020}
+.out p{margin:.75rem 0 0}
+.out .fine,.fine{color:#595959;font-size:.9375rem}
+.warn{color:#B00020;font-weight:500}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.625rem 0;border-bottom:1px solid #D9D9D9}
+.crow b{font-weight:700;white-space:nowrap}
+.crow.go{border-bottom:2px solid #000}
+.chip{display:inline-block;width:14px;height:14px;margin-right:.625rem;vertical-align:-1px;border:1px solid #000}
+.chip-a{background:#FFCC00}.chip-b{background:#C8DB2A}.chip-c{background:#000}.chip-go{background:#0B7A4B}
+/* To use neutral colours instead of brand-like colours, add class "neutral" to <section id="calculator"> */
+.neutral .chip-a{background:#999}.neutral .chip-b{background:#6C8CD5}.neutral .chip-c{background:#8E6CC4}
 @media(max-width:600px){.wa{min-height:48px;padding:0 1rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -142,6 +166,7 @@ body.typing .wa{display:none}
       <a class="btn" href="#join" data-tab="rider">I want to ride</a>
     </div>
     <p class="soon">Launching soon in Hyderabad. E-autos first, then e-bikes and e-cabs.</p>
+    <p class="soon" style="margin-top:.5rem"><a href="#calculator" data-ctab="driver" style="font-weight:700;display:inline-block;padding:.5rem 0">See what you could keep or save</a></p>
   </div>
 </div>
 
@@ -163,6 +188,57 @@ body.typing .wa{display:none}
     <div class="body">
       <p class="offer">The first 100 drivers get 30 days with no subscription fee, then 25% off the fee for 6 months.</p>
       <p>After that, drivers pay one flat subscription fee and never a cut of the fare. We will share the price before launch.</p>
+    </div>
+  </div>
+</section>
+
+<section id="calculator" class="calc">
+  <div class="wrap grid">
+    <h2 class="label">Calculate</h2>
+    <div class="body">
+      <p class="calc-intro">See what you keep, or what a ride costs.</p>
+      <div class="tabs" role="tablist" aria-label="Calculator">
+        <button class="ctab" role="tab" id="ct-driver" aria-controls="cp-driver" aria-selected="true" type="button" data-ctab="driver">Driver earnings</button>
+        <button class="ctab" role="tab" id="ct-trip" aria-controls="cp-trip" aria-selected="false" type="button" data-ctab="trip" tabindex="-1">Trip cost</button>
+      </div>
+
+      <!-- DRIVER EARNINGS -->
+      <div class="cpanel" id="cp-driver" role="tabpanel" aria-labelledby="ct-driver">
+        <p class="fine warn" style="margin:0 0 1.25rem">Example numbers are filled in. Replace them with yours.</p>
+        <div class="cgrid">
+          <div class="field"><label for="cd-vehicle">Your vehicle</label>
+            <select id="cd-vehicle"><option value="auto">E-auto</option><option value="bike">E-bike</option><option value="cab">E-cab</option></select></div>
+          <div class="field"><label for="cd-fares">Fares you collect per day (₹)</label>
+            <input id="cd-fares" type="text" inputmode="decimal" value="1500"></div>
+          <div class="field"><label for="cd-days">Working days per month</label>
+            <input id="cd-days" type="text" inputmode="numeric" value="26"></div>
+          <div class="field"><label for="cd-mode">What you pay apps today</label>
+            <select id="cd-mode"><option value="pct">A commission (% of each fare)</option><option value="flat">A flat fee per day (₹)</option></select></div>
+          <div class="field"><label for="cd-pay" id="cd-pay-l">Commission (%)</label>
+            <input id="cd-pay" type="text" inputmode="decimal" value="20"></div>
+          <div class="field"><label for="cd-fuel">Your fuel or charging cost per day today (₹)</label>
+            <input id="cd-fuel" type="text" inputmode="decimal" value="400">
+            <p class="hint">CNG, petrol or diesel. If you already drive an EV, enter your charging cost here and in the next box.</p></div>
+          <div class="field"><label for="cd-charge">Charging cost per day with an EV (₹)</label>
+            <input id="cd-charge" type="text" inputmode="decimal" value="150"></div>
+        </div>
+        <div class="out" id="cd-out" aria-live="polite"></div>
+      </div>
+
+      <!-- TRIP COST -->
+      <div class="cpanel" id="cp-trip" role="tabpanel" aria-labelledby="ct-trip" hidden>
+        <div class="cgrid">
+          <div class="field"><label for="ct-from">From</label><select id="ct-from"></select></div>
+          <div class="field"><label for="ct-to">To</label><select id="ct-to"></select></div>
+          <div class="field"><label for="ct-vehicle">Vehicle</label>
+            <select id="ct-vehicle"><option value="auto">E-auto</option><option value="bike">E-bike</option><option value="cab">E-cab</option></select></div>
+          <div class="field"><label for="ct-when">When</label>
+            <select id="ct-when"><option value="now">Now</option><option value="peak">Busy hours (8 to 11 am, 5 to 9 pm)</option><option value="off">Quiet daytime</option><option value="night">Night (10 pm to 5 am)</option></select></div>
+          <div class="field"><label for="ct-km">Or type the distance in km <span class="opt">(optional)</span></label>
+            <input id="ct-km" type="text" inputmode="decimal" placeholder="For example, 8.5"></div>
+        </div>
+        <div class="out" id="ct-out" aria-live="polite"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -374,6 +450,17 @@ if(/^#(driver|rider|fleet)$/.test(location.hash)){showTab(location.hash.slice(1)
 /* Hide the floating WhatsApp button while someone is typing in a form */
 document.addEventListener('focusin',function(e){if(e.target.closest&&e.target.closest('form'))document.body.classList.add('typing')});
 document.addEventListener('focusout',function(){document.body.classList.remove('typing')});
+/* Also hide it while the calculators or sign-up forms are on screen, so it never covers prices or fields */
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var seen={};
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){seen[e.target.id]=e.isIntersecting});
+    var any=Object.keys(seen).some(function(k){return seen[k]});
+    document.body.classList.toggle('typing',any);
+  },{threshold:0.05});
+  ['calculator','join'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+})();
 
 /* Helpers */
 function cleanMobile(v){
@@ -454,6 +541,149 @@ document.querySelectorAll('form[data-type]').forEach(function(form){
     clearTimeout(timer);btn.disabled=false;btn.textContent=label;
   });
 });
+
+/* ---------- Calculators ---------- */
+/* Prices below are examples until you replace them with your own quotes. Fill CHECKED_ON (for example "1 Oct 2026") once the other-app numbers are real. */
+var CALC={
+  CHECKED_ON:'',
+  GO_PLAN:{bike:99,auto:149,cab:249},
+  GO:{
+    auto:{base:30,baseKm:1.5,perKm:13,perMin:1,fee:8,min:35,night:1.15},
+    bike:{base:20,baseKm:2,perKm:6,perMin:0.5,fee:5,min:25,night:1.10},
+    cab:{base:50,baseKm:2,perKm:15,perMin:1.5,fee:10,min:65,night:1.20}
+  },
+  OTHER:{
+    auto:[{n:'Other app 1',c:'chip-a',base:35,baseKm:1.5,perKm:14,perMin:1.2,fee:10,min:40,night:1.15,surge:1.25},
+          {n:'Other app 2',c:'chip-b',base:30,baseKm:1.5,perKm:15,perMin:1,fee:12,min:38,night:1.15,surge:1.3},
+          {n:'Other app 3',c:'chip-c',base:32,baseKm:1.5,perKm:13.5,perMin:1.5,fee:8,min:36,night:1.15,surge:1.2}],
+    bike:[{n:'Other app 1',c:'chip-a',base:22,baseKm:2,perKm:6.5,perMin:0.6,fee:6,min:28,night:1.1,surge:1.25},
+          {n:'Other app 2',c:'chip-b',base:20,baseKm:2,perKm:7,perMin:0.5,fee:7,min:27,night:1.1,surge:1.3},
+          {n:'Other app 3',c:'chip-c',base:24,baseKm:2,perKm:6,perMin:0.7,fee:5,min:28,night:1.1,surge:1.2}],
+    cab:[{n:'Other app 1',c:'chip-a',base:55,baseKm:2,perKm:16,perMin:1.6,fee:12,min:70,night:1.2,surge:1.4},
+         {n:'Other app 2',c:'chip-b',base:50,baseKm:2,perKm:17,perMin:1.5,fee:14,min:68,night:1.2,surge:1.5},
+         {n:'Other app 3',c:'chip-c',base:52,baseKm:2,perKm:15.5,perMin:1.8,fee:10,min:66,night:1.2,surge:1.35}]
+  },
+  /* Approximate centre points. Distance is a straight line times 1.35, so treat it as an estimate. */
+  AREAS:{'HITEC City':[17.4435,78.3772],'Madhapur':[17.4486,78.3908],'Gachibowli':[17.4401,78.3489],'Kondapur':[17.4600,78.3640],'Financial District':[17.4172,78.3434],'Manikonda':[17.4047,78.3869],'Kukatpally':[17.4948,78.3996],'Miyapur':[17.4969,78.3548],'Ameerpet':[17.4375,78.4483],'Begumpet':[17.4440,78.4676],'Secunderabad':[17.4399,78.4983],'Banjara Hills':[17.4156,78.4347],'Jubilee Hills':[17.4326,78.4071],'Mehdipatnam':[17.3950,78.4400],'Nampally':[17.3922,78.4683],'Charminar':[17.3616,78.4747],'Uppal':[17.4058,78.5591],'Dilsukhnagar':[17.3688,78.5247],'LB Nagar':[17.3457,78.5522],'Airport (RGIA)':[17.2403,78.4294]}
+};
+function num(id){var v=parseFloat(String(document.getElementById(id).value).replace(/,/g,''));return isFinite(v)?v:NaN}
+function inr(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+function istNow(){
+  var d=new Date();
+  var t=new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',weekday:'short',day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit',hour12:true}).format(d);
+  var h=parseInt(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',hour12:false}).format(d),10)%24;
+  return {text:t,hour:h,date:d};
+}
+function istClock(d){return new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',hour:'numeric',minute:'2-digit',hour12:true}).format(d)}
+function calcUsed(kind){
+  try{if(evgoVid&&!sessionStorage.getItem('evgo_c_'+kind)){sessionStorage.setItem('evgo_c_'+kind,'1');track({type:'event',visit_id:evgoVid,source:evgoSrc,event:'calc_'+kind})}}catch(e){}
+}
+
+/* Calculator tabs */
+var ctabs=[].slice.call(document.querySelectorAll('.ctab'));
+function showCalc(name,focus){
+  ctabs.forEach(function(t){
+    var on=t.dataset.ctab===name;
+    t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;
+    document.getElementById('cp-'+t.dataset.ctab).hidden=!on;
+    if(on&&focus)t.focus();
+  });
+}
+ctabs.forEach(function(t,i){
+  t.addEventListener('click',function(){showCalc(t.dataset.ctab)});
+  t.addEventListener('keydown',function(e){
+    var n=null;
+    if(e.key==='ArrowRight')n=(i+1)%ctabs.length;else if(e.key==='ArrowLeft')n=(i-1+ctabs.length)%ctabs.length;
+    else if(e.key==='Home')n=0;else if(e.key==='End')n=ctabs.length-1;
+    if(n!==null){e.preventDefault();showCalc(ctabs[n].dataset.ctab,true)}
+  });
+});
+
+/* Driver earnings */
+var drvTouched=false;
+function drawDriver(){
+  var out=document.getElementById('cd-out');
+  var v=document.getElementById('cd-vehicle').value,mode=document.getElementById('cd-mode').value;
+  document.getElementById('cd-pay-l').textContent=mode==='pct'?'Commission (%)':'Flat fee per day (₹)';
+  var F=num('cd-fares'),D=num('cd-days'),P=num('cd-pay'),fuel=num('cd-fuel'),chg=num('cd-charge');
+  if(!(F>0)||!(D>0&&D<=31)||!(P>=0)||!(fuel>=0)||!(chg>=0)||(mode==='pct'&&P>100)){out.innerHTML='<p class="warn">Fill in your daily fares, working days, what you pay apps, and your fuel and charging costs.</p>';return}
+  var fee=CALC.GO_PLAN[v],plat=mode==='pct'?F*P/100:P;
+  var todayNet=F-plat-fuel,goNet=F-fee-chg,diffDay=goNet-todayNet,diffMonth=diffDay*D,pct=diffMonth/(F*D)*100;
+  var month1=((F-chg)-todayNet)*D,now=istNow();
+  var good=diffMonth>=0,ex=drvTouched?'':'Example: ';
+  out.innerHTML=
+   '<span>'+ex+(good?'With ev-go you could keep about':'On these numbers you would keep about')+'</span>'+
+   '<span class="big'+(good?'':' neg')+'">'+inr(Math.abs(diffMonth))+(good?' more':' less')+' a month</span>'+
+   '<span>That is '+Math.abs(pct).toFixed(1)+'% '+(good?'of your fares':'of your fares less')+'.</span>'+
+   '<table style="margin-top:1.25rem"><tbody>'+
+   '<tr><td>From app fees ('+inr(plat)+' vs '+inr(fee)+' a day)</td><td>'+(plat-fee>=0?'+':'&minus;')+inr(Math.abs((plat-fee)*D))+' a month</td></tr>'+
+   '<tr><td>From fuel vs charging ('+inr(fuel)+' vs '+inr(chg)+' a day)</td><td>'+(fuel-chg>=0?'+':'&minus;')+inr(Math.abs((fuel-chg)*D))+' a month</td></tr></tbody></table>'+
+   '<p class="fine">The fuel part comes from driving an EV, not from ev-go. We show both so you can see where the money comes from.</p>'+
+   '<table style="margin-top:1.25rem"><thead><tr><th></th><th>Today</th><th>With ev-go</th></tr></thead><tbody>'+
+   '<tr><td>Fares per day</td><td>'+inr(F)+'</td><td>'+inr(F)+'</td></tr>'+
+   '<tr><td>App fees per day</td><td>&minus;'+inr(plat)+'</td><td>&minus;'+inr(fee)+'</td></tr>'+
+   '<tr><td>Fuel or charging per day</td><td>&minus;'+inr(fuel)+'</td><td>&minus;'+inr(chg)+'</td></tr>'+
+   '<tr class="total"><td>You keep per day</td><td>'+inr(todayNet)+'</td><td>'+inr(goNet)+'</td></tr>'+
+   '<tr class="total"><td>You keep per month</td><td>'+inr(todayNet*D)+'</td><td>'+inr(goNet*D)+'</td></tr></tbody></table>'+
+   '<p>Founding drivers pay no ev-go fee for the first 30 days. In that month you would keep about <b>'+inr(month1)+(month1>=0?' more':' less')+'</b> than today.</p>'+
+   '<p class="fine">ev-go plan used: '+inr(fee)+' a day (example, final price shared before launch). Fuel and charging amounts are the ones you typed. The first 100 drivers get the founding offer. This is an estimate, not a promise.</p>'+
+   '<p class="fine">Calculated '+now.text+' IST.</p>';
+}
+['cd-vehicle','cd-fares','cd-days','cd-mode','cd-pay','cd-fuel','cd-charge'].forEach(function(id){
+  var el=document.getElementById(id);el.addEventListener('input',function(){drvTouched=true;drawDriver();calcUsed('driver')});el.addEventListener('change',drawDriver);
+});
+
+/* Trip cost */
+function fareOf(rc,km,min,night,surge){
+  var ride=rc.base+Math.max(0,km-rc.baseKm)*rc.perKm+min*rc.perMin;
+  ride=Math.max(ride,rc.min)*(night?rc.night:1)*surge;
+  return ride+rc.fee;
+}
+function km(a,b){
+  var R=6371,r=Math.PI/180,p=CALC.AREAS[a],q=CALC.AREAS[b];
+  var dLat=(q[0]-p[0])*r,dLon=(q[1]-p[1])*r;
+  var x=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(p[0]*r)*Math.cos(q[0]*r)*Math.sin(dLon/2)*Math.sin(dLon/2);
+  return 2*R*Math.asin(Math.sqrt(x))*1.35;
+}
+function drawTrip(){
+  var out=document.getElementById('ct-out');
+  var a=document.getElementById('ct-from').value,b=document.getElementById('ct-to').value,v=document.getElementById('ct-vehicle').value;
+  var typed=num('ct-km'),dist=isFinite(typed)&&typed>0?typed:(a&&b&&a!==b?km(a,b):NaN);
+  if(!(dist>0)){out.innerHTML='<p class="warn">Choose two different places, or type the distance in km.</p>';return}
+  dist=Math.max(1,dist);
+  var now=istNow(),when=document.getElementById('ct-when').value;
+  if(when==='now')when=(now.hour>=22||now.hour<5)?'night':((now.hour>=8&&now.hour<11)||(now.hour>=17&&now.hour<21))?'peak':'off';
+  var night=when==='night',speed=when==='peak'?18:when==='night'?30:25;
+  var min=Math.round(dist/speed*60);
+  var go=fareOf(CALC.GO[v],dist,min,night,1);
+  var rows='',lows=0,highs=0,list=CALC.OTHER[v];
+  list.forEach(function(o){
+    var lo=fareOf(o,dist,min,night,1),hi=fareOf(o,dist,min,night,o.surge);lows+=lo;highs+=hi;
+    rows+='<div class="crow"><span><span class="chip '+o.c+'"></span>'+o.n+'</span><b>'+inr(lo)+' to '+inr(hi)+'</b></div>';
+  });
+  var avgLo=lows/list.length,avgHi=highs/list.length,mid=(avgLo+avgHi)/2,save=mid-go,sp=save/mid*100;
+  var ex=CALC.CHECKED_ON?'':'Example: ';
+  var sum=save>=3?'<span>'+ex+'You could pay about</span><span class="big">'+inr(save)+' less ('+sp.toFixed(0)+'%)</span><span>than the middle of the other apps\' typical range.</span>'
+    :save<=-3?'<span>'+ex+'On this trip you could pay</span><span class="big neg">'+inr(-save)+' more</span><span>than the middle of the other apps\' typical range on this trip.</span>'
+    :'<span class="big">About the same</span><span>as the other apps\' typical range on this trip.</span>';
+  var arrive=document.getElementById('ct-when').value==='now'?' If you leave now, you arrive around <b>'+istClock(new Date(now.date.getTime()+min*60000))+'</b> IST.':'';
+  var checked=CALC.CHECKED_ON?'Other-app prices are our own sample checks, last updated '+CALC.CHECKED_ON+'. Real prices change with demand.':'<span class="warn">Other-app prices are examples, not real quotes yet.</span> Real prices change with demand.';
+  out.innerHTML=sum+
+   '<div style="margin-top:1.25rem"><div class="crow go"><span><span class="chip chip-go"></span>ev-go</span><b>'+inr(go)+'</b></div>'+rows+'</div>'+
+   '<p>About <b>'+dist.toFixed(1)+' km</b> and <b>'+min+' min</b> ('+Math.max(1,Math.round(min*0.8))+' to '+Math.round(min*1.25)+' min).'+arrive+'</p>'+
+   '<p class="fine">ev-go price includes a '+inr(CALC.GO[v].fee)+' platform fee'+(night?' and the night surcharge':'')+'. Distance is estimated from the two areas, so treat everything here as an estimate.</p>'+
+   '<p class="fine">'+checked+'</p><p class="fine">Calculated '+now.text+' IST.</p>';
+}
+(function(){
+  var names=Object.keys(CALC.AREAS).sort(),opts=names.map(function(n){return '<option>'+n+'</option>'}).join('');
+  var f=document.getElementById('ct-from'),t=document.getElementById('ct-to');
+  f.innerHTML=opts;t.innerHTML=opts;f.value='Kukatpally';t.value='HITEC City';
+  ['ct-from','ct-to','ct-vehicle','ct-when','ct-km'].forEach(function(id){
+    var el=document.getElementById(id);el.addEventListener('input',function(){drawTrip();calcUsed('trip')});el.addEventListener('change',drawTrip);
+  });
+  drawDriver();drawTrip();
+  if(location.hash==='#calculator-trip')showCalc('trip');
+})();
 </script>
 </body>
 </html>
