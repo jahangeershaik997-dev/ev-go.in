@@ -77,8 +77,15 @@ section{border-top:1px solid #000;padding:3rem 0}
 .steps li{margin:0 0 .5rem;padding-left:.25rem}
 
 /* forms */
-.help{margin:0 0 1.5rem;max-width:34rem}
-.help a{font-weight:700;display:inline-block;padding:.5rem 0}
+.help{margin:0 0 1.75rem;max-width:34rem}
+.help>p{margin:0 0 .75rem}
+.contact{display:grid;grid-template-columns:1fr;gap:.75rem}
+@media(min-width:520px){.contact{grid-template-columns:1fr 1fr}}
+.cbtn{display:flex;flex-direction:column;justify-content:center;min-height:60px;padding:.5rem 1rem;border:2px solid #000;background:#fff;color:#000;text-decoration:none;line-height:1.25}
+.cbtn span{font-size:.9375rem;font-weight:500}
+.cbtn b{font-size:1.125rem;font-weight:700}
+.cbtn.wa-btn{background:#0B7A4B;border-color:#0B7A4B;color:#fff}
+.cbtn:hover{background:#000;border-color:#000;color:#fff}
 .tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid #000;margin-bottom:1.75rem}
 .tab{flex:1 1 auto;min-height:52px;padding:0 1rem;font:inherit;font-weight:500;background:#fff;color:#595959;border:0;border-bottom:4px solid transparent;cursor:pointer;text-align:left}
 .tab[aria-selected="true"]{color:#000;font-weight:700;border-bottom-color:#0B7A4B}
@@ -102,9 +109,10 @@ section{border-top:1px solid #000;padding:3rem 0}
 .after{margin-top:1rem}
 
 footer{border-top:1px solid #000;padding:2rem 0 3rem}
-footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
-footer p{margin:0}
-footer a{display:inline-block;padding:.5rem 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:0 2rem;justify-content:space-between;align-items:center}
+@media(max-width:600px){footer .wrap{flex-direction:column;align-items:flex-start}}
+footer p{margin:0;display:flex;align-items:center;min-height:44px}
+footer a{display:flex;align-items:center;min-height:44px}
 .priv p{margin:0 0 .75rem;max-width:38rem}
 .priv p:last-child{margin-bottom:0}
 .priv strong{font-weight:700}
@@ -187,8 +195,14 @@ body.typing .wa{display:none}
   <div class="wrap grid">
     <h2 class="label">Join early</h2>
     <div class="body">
-      <p class="help">Prefer to talk? <a href="https://wa.me/919000314625?text=Hi%20ev-go%2C%20I%20need%20help%20joining">WhatsApp messages +91 90003 14625</a><br><a href="tel:+919700953452">Call +91 97009 53452</a></p>
-      <noscript><p class="help"><b>Turn on JavaScript to use the forms, or message or call us using the numbers above.</b></p></noscript>
+      <div class="help">
+        <p>Prefer to talk or message?</p>
+        <div class="contact">
+          <a class="cbtn wa-btn" href="https://wa.me/919000314625?text=Hi%20ev-go%2C%20I%20need%20help%20joining"><span>WhatsApp messages</span><b>+91 90003 14625</b></a>
+          <a class="cbtn" href="tel:+919700953452"><span>Call (also on WhatsApp)</span><b>+91 97009 53452</b></a>
+        </div>
+      </div>
+      <noscript><p><b>Turn on JavaScript to use the forms, or message or call us using the numbers above.</b></p></noscript>
       <div class="tabs" role="tablist" aria-label="Sign up as">
         <button class="tab" role="tab" id="t-driver" aria-controls="p-driver" aria-selected="true" type="button" data-tab="driver">Driver</button>
         <button class="tab" role="tab" id="t-rider" aria-controls="p-rider" aria-selected="false" type="button" data-tab="rider" tabindex="-1">Rider</button>
