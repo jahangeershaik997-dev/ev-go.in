@@ -269,6 +269,7 @@ body.typing .wa{display:none}
     <h2 class="label">Privacy</h2>
     <div class="body">
       <p><strong>What we collect.</strong> The details you type into a form: name, mobile number, area, vehicle or business details, language, and the time you agreed to be contacted.</p>
+      <p><strong>Visit counts.</strong> When you open this page we record, without your name or number, a random visit code stored in your browser, which poster or link you came from, your phone type, your language and the time. We also note when you tap the WhatsApp or call links or start a form. We use this only to count visits and see which posters work. If you later send a form, we link it to the same visit code. Browsers that send a Do Not Track signal are not counted.</p>
       <p><strong>Why.</strong> Only to contact you about ev-go's launch and early sign-up. We do not sell your details.</p>
       <p><strong>Where it is kept.</strong> In a private Google Sheet that only the ev-go team can open. Google's services process it on our behalf.</p>
       <p><strong>How long.</strong> Until you ask us to delete it, or until we no longer need it to contact you about ev-go.</p>
@@ -292,6 +293,44 @@ body.typing .wa{display:none}
 
 <script>
 document.documentElement.classList.add('js');
+
+/* Anonymous visit tracking: one random ID per browser, no name or number unless a form is submitted. */
+var evgoVid='',evgoSrc='',evgoMed='';
+function track(p){
+  try{
+    /* Apps Script web app that saves sign-ups and visit counts to Google Sheets (see SETUP.md) */
+    fetch('https://script.google.com/macros/s/AKfycby2r_YG4OmbcLa_ZYXqsnTus9Ty8ZsEoKFZPXVHFIWu685k1UtIK7uCmqgCNRFJlUOC/exec',{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(p)}).catch(function(){});
+  }catch(e){}
+}
+(function(){
+  try{
+    var q=new URLSearchParams(location.search);
+    /* Remember where the visitor first came from, so a later sign-up still counts for the right poster */
+    if(q.get('utm_source')){localStorage.setItem('evgo_src',q.get('utm_source'));localStorage.setItem('evgo_med',q.get('utm_medium')||'')}
+    evgoSrc=localStorage.getItem('evgo_src')||'';evgoMed=localStorage.getItem('evgo_med')||'';
+    if(navigator.doNotTrack==='1'||navigator.webdriver||/^(localhost|127\.)/.test(location.hostname))return;
+    var vid=localStorage.getItem('evgo_vid'),returning=!!vid;
+    if(!vid){vid='v'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);localStorage.setItem('evgo_vid',vid)}
+    evgoVid=vid;
+    if(!sessionStorage.getItem('evgo_s')){
+      sessionStorage.setItem('evgo_s','1');
+      var ua=navigator.userAgent,ref='';
+      try{ref=document.referrer?new URL(document.referrer).hostname:''}catch(e){}
+      track({type:'visit',visit_id:vid,source:evgoSrc,medium:evgoMed,returning:returning?'yes':'no',lang:navigator.language||'',referrer:ref,path:location.pathname,
+        device:/Android/i.test(ua)?'Android':/iPhone|iPad|iPod/i.test(ua)?'iOS':/Windows|Macintosh|Linux|X11/i.test(ua)?'Desktop':'Other'});
+    }
+    /* Interest signals: taps on WhatsApp or call links, and the first time someone starts a form */
+    document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+      var href=a.getAttribute('href')||'';
+      if(href.indexOf('https://wa.me/')===0)track({type:'event',visit_id:vid,source:evgoSrc,event:'wa_click'});
+      else if(href.indexOf('tel:')===0)track({type:'event',visit_id:vid,source:evgoSrc,event:'call_click'});
+    });
+    document.addEventListener('focusin',function(e){
+      if(e.target.closest&&e.target.closest('form')&&!sessionStorage.getItem('evgo_f')){sessionStorage.setItem('evgo_f','1');track({type:'event',visit_id:vid,source:evgoSrc,event:'form_start'})}
+    });
+  }catch(e){}
+})();
 
 /* Tabs: click, plus Left/Right/Home/End with one tab stop */
 var tabs=[].slice.call(document.querySelectorAll('.tab'));
@@ -368,9 +407,9 @@ document.querySelectorAll('form[data-type]').forEach(function(form){
     });
     if(!ok){if(firstBad)firstBad.focus();return}
 
-    var data={type:form.dataset.type,page:location.href,consent:'yes',notice:'v1',
-      utm_source:new URLSearchParams(location.search).get('utm_source')||'',
-      utm_medium:new URLSearchParams(location.search).get('utm_medium')||''};
+    var data={type:form.dataset.type,page:location.href,consent:'yes',notice:'v1',visit_id:evgoVid,
+      utm_source:new URLSearchParams(location.search).get('utm_source')||evgoSrc,
+      utm_medium:new URLSearchParams(location.search).get('utm_medium')||evgoMed};
     new FormData(form).forEach(function(v,k){if(k!=='consent')data[k]=String(v).trim().slice(0,200)});
     data.mobile=cleanMobile(data.mobile);
 
