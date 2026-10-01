@@ -3,19 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ev-go | Zero-commission EV rides in Hyderabad</title>
-<meta name="description" content="ev-go is launching in Hyderabad. Drivers keep 100% of the fare. Riders get clean, quiet, fairly priced EV rides. Join early.">
+<title>ev-go Hyderabad | E-auto driver sign-ups, 0% commission</title>
+<meta name="description" content="Join ev-go's Hyderabad launch list. E-autos first. Drivers pay a flat subscription, not commission. First 100 drivers get 30 days with no subscription fee.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ev-go | Zero-commission EV rides in Hyderabad">
+<meta property="og:title" content="ev-go Hyderabad | E-auto driver sign-ups, 0% commission">
 <meta property="og:description" content="Drivers keep 100% of the fare. Riders get clean, quiet, fairly priced EV rides. Launching soon in Hyderabad.">
-<meta property="og:url" content="https://ev-go.in/">
-<meta property="og:image" content="https://ev-go.in/assets/og-image.png">
+<meta property="og:url" content="https://www.ev-go.in/">
+<meta property="og:image" content="https://www.ev-go.in/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://ev-go.in/assets/og-image.png">
+<meta name="twitter:image" content="https://www.ev-go.in/assets/og-image.png">
 <meta name="twitter:title" content="ev-go | Zero-commission EV rides in Hyderabad">
 <meta name="twitter:description" content="Drivers keep 100% of the fare. Launching soon in Hyderabad.">
 <meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://ev-go.in/">
+<link rel="canonical" href="https://www.ev-go.in/">
 <link rel="icon" href="/assets/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/ev-go-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -37,7 +39,7 @@ header{border-bottom:1px solid #000}
 header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:64px}
 .mark{font-weight:700;font-size:1.375rem;letter-spacing:-.02em;text-decoration:none}
 .mark img{display:block;height:28px;width:auto}
-.nav{font-weight:500;text-decoration:none;border-bottom:2px solid #0B7A4B;padding:.25rem 0}
+.nav{font-weight:500;text-decoration:none;border-bottom:2px solid #0B7A4B;padding:.75rem 0 .5rem}
 
 /* hero */
 .hero{padding:4.5rem 0 3.5rem}
@@ -52,7 +54,7 @@ header .wrap{display:flex;justify-content:space-between;align-items:center;min-h
 
 /* sections */
 section{border-top:1px solid #000;padding:3rem 0}
-.label{grid-column:1/-1;margin:0 0 1.5rem;font-weight:700;font-size:1.0625rem}
+.label{grid-column:1/-1;margin:0 0 1.5rem;font-weight:700;font-size:1.0625rem;line-height:1.5}
 .body{grid-column:1/-1}
 @media(min-width:800px){.label{grid-column:1/4;margin:0}.body{grid-column:4/-1}}
 
@@ -62,6 +64,7 @@ section{border-top:1px solid #000;padding:3rem 0}
 .fact:first-child{border-top:0;padding-top:0}
 .fact b{display:block;font-size:clamp(3.5rem,11vw,5.5rem);line-height:1;letter-spacing:-.04em;color:#0B7A4B;font-weight:700}
 .fact span{display:block;margin-top:.5rem;max-width:16rem}
+.note{margin:1.5rem 0 0;color:#595959;max-width:36rem}
 @media(min-width:800px){.facts{grid-template-columns:repeat(3,1fr);column-gap:1.25rem}.fact{border-top:0;padding:0}.fact b{font-size:clamp(3rem,5.6vw,4.5rem);white-space:nowrap}}
 
 .offer{font-size:clamp(1.5rem,3.6vw,2.25rem);line-height:1.2;letter-spacing:-.02em;font-weight:500;margin:0;max-width:30ch}
@@ -74,6 +77,8 @@ section{border-top:1px solid #000;padding:3rem 0}
 .steps li{margin:0 0 .5rem;padding-left:.25rem}
 
 /* forms */
+.help{margin:0 0 1.5rem;max-width:34rem}
+.help a{font-weight:700;display:inline-block;padding:.5rem 0}
 .tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid #000;margin-bottom:1.75rem}
 .tab{flex:1 1 auto;min-height:52px;padding:0 1rem;font:inherit;font-weight:500;background:#fff;color:#595959;border:0;border-bottom:4px solid transparent;cursor:pointer;text-align:left}
 .tab[aria-selected="true"]{color:#000;font-weight:700;border-bottom-color:#0B7A4B}
@@ -88,6 +93,8 @@ section{border-top:1px solid #000;padding:3rem 0}
 .field.err .msg{display:block}
 .consent{display:flex;gap:.75rem;align-items:flex-start}
 .consent input{width:24px;height:24px;margin:.125rem 0 0;flex:none;accent-color:#0B7A4B}
+.field.err.consent input{outline:2px solid #B00020;outline-offset:2px}
+.opt{color:#595959;font-weight:400}
 .privacy{margin:0;color:#595959;font-size:.9375rem;max-width:34rem}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .status{margin-top:1.25rem;max-width:34rem;min-height:1.5rem;font-weight:500}
@@ -97,9 +104,15 @@ section{border-top:1px solid #000;padding:3rem 0}
 footer{border-top:1px solid #000;padding:2rem 0 3rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
 footer p{margin:0}
+footer a{display:inline-block;padding:.5rem 0}
+.priv p{margin:0 0 .75rem;max-width:38rem}
+.priv p:last-child{margin-bottom:0}
+.priv strong{font-weight:700}
 
+body.typing .wa{display:none}
 .wa{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:10;display:inline-flex;align-items:center;min-height:52px;padding:0 1.25rem;background:#0B7A4B;color:#fff;font-weight:700;text-decoration:none;border:2px solid #fff;outline:1px solid #0B7A4B}
 .wa:hover{background:#000;outline-color:#000}
+@media(max-width:600px){.wa{min-height:48px;padding:0 1rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -126,34 +139,35 @@ footer p{margin:0}
 
 <section aria-label="Key facts">
   <div class="wrap grid">
-    <p class="label">What drivers get</p>
+    <h2 class="label">What drivers get</h2>
     <div class="body facts">
       <div class="fact"><b>0%</b><span>Commission taken from the fare</span></div>
       <div class="fact"><b>100%</b><span>Of every fare goes to the driver</span></div>
-      <div class="fact"><b>30 days</b><span>Free for founding drivers</span></div>
+      <div class="fact"><b>30 days</b><span>No subscription fee for founding drivers</span></div>
+      <p class="note" style="grid-column:1/-1">0% commission. A flat subscription fee applies after the free period.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap grid">
-    <p class="label">Founding drivers</p>
+    <h2 class="label">Founding drivers</h2>
     <div class="body">
-      <p class="offer">The first 100 drivers get 30 days free and 25% off for 6 months.</p>
-      <p>After the free period, drivers pay one flat fee, never a cut of the fare. Plans are shared before launch.</p>
+      <p class="offer">The first 100 drivers get 30 days with no subscription fee, then 25% off the fee for 6 months.</p>
+      <p>After that, drivers pay one flat subscription fee and never a cut of the fare. We will share the price before launch.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap grid">
-    <p class="label">How it works</p>
+    <h2 class="label">How it works</h2>
     <div class="body steps">
       <div>
         <h3>Drivers</h3>
         <ol>
           <li>Sign up below.</li>
-          <li>We call you on WhatsApp to check your documents.</li>
+          <li>We message you on WhatsApp or call you to explain the next steps.</li>
           <li>Go online at launch and keep every rupee of the fare.</li>
         </ol>
       </div>
@@ -171,31 +185,33 @@ footer p{margin:0}
 
 <section id="join">
   <div class="wrap grid">
-    <p class="label">Join early</p>
+    <h2 class="label">Join early</h2>
     <div class="body">
+      <p class="help">Prefer to talk? <a href="https://wa.me/919000314625?text=Hi%20ev-go%2C%20I%20need%20help%20joining">WhatsApp messages +91 90003 14625</a><br><a href="tel:+919700953452">Call +91 97009 53452</a></p>
+      <noscript><p class="help"><b>Turn on JavaScript to use the forms, or message or call us using the numbers above.</b></p></noscript>
       <div class="tabs" role="tablist" aria-label="Sign up as">
         <button class="tab" role="tab" id="t-driver" aria-controls="p-driver" aria-selected="true" type="button" data-tab="driver">Driver</button>
-        <button class="tab" role="tab" id="t-rider" aria-controls="p-rider" aria-selected="false" type="button" data-tab="rider">Rider</button>
-        <button class="tab" role="tab" id="t-fleet" aria-controls="p-fleet" aria-selected="false" type="button" data-tab="fleet">Fleet or company</button>
+        <button class="tab" role="tab" id="t-rider" aria-controls="p-rider" aria-selected="false" type="button" data-tab="rider" tabindex="-1">Rider</button>
+        <button class="tab" role="tab" id="t-fleet" aria-controls="p-fleet" aria-selected="false" type="button" data-tab="fleet" tabindex="-1">Business</button>
       </div>
 
       <!-- DRIVER -->
       <div class="panel" id="p-driver" role="tabpanel" aria-labelledby="t-driver">
-        <form data-type="driver" novalidate>
+        <form method="post" data-type="driver" novalidate>
           <div class="fields">
             <div class="field"><label for="d-name">Full name</label><input id="d-name" name="name" type="text" autocomplete="name" required><p class="msg">Enter your name.</p></div>
             <div class="field"><label for="d-mobile">Mobile number</label><input id="d-mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required><p class="msg">Enter a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
             <div class="field"><label for="d-vehicle">Vehicle type</label>
               <select id="d-vehicle" name="vehicle_type" required><option value="">Choose one</option><option>E-auto</option><option>E-bike</option><option>E-cab</option><option>I don't have an EV yet</option></select><p class="msg">Choose a vehicle type.</p></div>
-            <div class="field"><label for="d-own">Do you own the vehicle?</label>
-              <select id="d-own" name="ownership" required><option value="">Choose one</option><option>Own</option><option>Rent</option><option>Planning to buy</option></select><p class="msg">Choose one.</p></div>
+            <div class="field"><label for="d-own">Do you own the vehicle? <span class="opt">(optional)</span></label>
+              <select id="d-own" name="ownership"><option value="">Choose one</option><option>Own</option><option>Rent</option><option>Planning to buy</option></select></div>
             <div class="field"><label for="d-area">Where in Hyderabad do you drive?</label>
               <select id="d-area" name="area" required><option value="">Choose an area</option><option>HITEC City</option><option>Madhapur</option><option>Gachibowli</option><option>Kondapur</option><option>Kukatpally</option><option>Miyapur</option><option>Ameerpet</option><option>Other</option></select><p class="msg">Choose an area.</p></div>
-            <div class="field"><label for="d-lang">Preferred language</label>
-              <select id="d-lang" name="language" required><option value="">Choose one</option><option>Telugu</option><option>Hindi</option><option>English</option><option>Urdu</option></select><p class="msg">Choose a language.</p></div>
-            <div class="field consent"><input id="d-consent" name="consent" type="checkbox" required><label for="d-consent">I agree to be contacted by ev-go on WhatsApp or phone about the launch.</label></div>
+            <div class="field"><label for="d-lang">Preferred language <span class="opt">(optional)</span></label>
+              <select id="d-lang" name="language"><option value="">Choose one</option><option>Telugu</option><option>Hindi</option><option>English</option><option>Urdu</option></select></div>
+            <div class="field consent"><input id="d-consent" name="consent" type="checkbox" required><div><label for="d-consent">I agree to be contacted by ev-go on WhatsApp or phone about the launch.</label><p class="msg">Please tick the box so we can contact you.</p></div></div>
             <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-            <p class="privacy">We use your details only to contact you about the ev-go launch, as per India's Digital Personal Data Protection Act, 2023. Ask us on WhatsApp to delete them any time.</p>
+            <p class="privacy">We use your details only to contact you about ev-go. Read how we handle them in <a href="#privacy">Privacy</a>.</p>
             <div><button class="btn primary" type="submit">Join as a driver</button></div>
           </div>
           <div class="status" role="status" aria-live="polite"></div>
@@ -205,7 +221,7 @@ footer p{margin:0}
 
       <!-- RIDER -->
       <div class="panel" id="p-rider" role="tabpanel" aria-labelledby="t-rider" hidden>
-        <form data-type="rider" novalidate>
+        <form method="post" data-type="rider" novalidate>
           <div class="fields">
             <div class="field"><label for="r-name">Full name</label><input id="r-name" name="name" type="text" autocomplete="name" required><p class="msg">Enter your name.</p></div>
             <div class="field"><label for="r-mobile">Mobile number</label><input id="r-mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required><p class="msg">Enter a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
@@ -213,9 +229,9 @@ footer p{margin:0}
               <select id="r-area" name="area" required><option value="">Choose an area</option><option>HITEC City</option><option>Madhapur</option><option>Gachibowli</option><option>Kondapur</option><option>Kukatpally</option><option>Miyapur</option><option>Ameerpet</option><option>Other</option></select><p class="msg">Choose an area.</p></div>
             <div class="field"><label for="r-ride">What do you mostly ride for?</label>
               <select id="r-ride" name="ride_type" required><option value="">Choose one</option><option>Office commute</option><option>Metro first or last mile</option><option>Airport</option><option>Other</option></select><p class="msg">Choose one.</p></div>
-            <div class="field consent"><input id="r-consent" name="consent" type="checkbox" required><label for="r-consent">I agree to be contacted by ev-go on WhatsApp or phone about the launch.</label></div>
+            <div class="field consent"><input id="r-consent" name="consent" type="checkbox" required><div><label for="r-consent">I agree to be contacted by ev-go on WhatsApp or phone about the launch.</label><p class="msg">Please tick the box so we can contact you.</p></div></div>
             <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-            <p class="privacy">We use your details only to contact you about the ev-go launch, as per India's Digital Personal Data Protection Act, 2023. Ask us on WhatsApp to delete them any time.</p>
+            <p class="privacy">We use your details only to contact you about ev-go. Read how we handle them in <a href="#privacy">Privacy</a>.</p>
             <div><button class="btn primary" type="submit">Join the rider list</button></div>
           </div>
           <div class="status" role="status" aria-live="polite"></div>
@@ -225,7 +241,7 @@ footer p{margin:0}
 
       <!-- FLEET -->
       <div class="panel" id="p-fleet" role="tabpanel" aria-labelledby="t-fleet" hidden>
-        <form data-type="fleet" novalidate>
+        <form method="post" data-type="fleet" novalidate>
           <div class="fields">
             <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required><p class="msg">Enter your name.</p></div>
             <div class="field"><label for="f-company">Company (optional)</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
@@ -235,9 +251,9 @@ footer p{margin:0}
             <div class="field"><label for="f-size">Number of vehicles or employees</label><input id="f-size" name="size" type="text" inputmode="numeric" placeholder="For example, 25" required><p class="msg">Enter a number.</p></div>
             <div class="field"><label for="f-area">Area</label>
               <select id="f-area" name="area" required><option value="">Choose an area</option><option>HITEC City</option><option>Madhapur</option><option>Gachibowli</option><option>Kondapur</option><option>Kukatpally</option><option>Miyapur</option><option>Ameerpet</option><option>Other</option></select><p class="msg">Choose an area.</p></div>
-            <div class="field consent"><input id="f-consent" name="consent" type="checkbox" required><label for="f-consent">I agree to be contacted by ev-go on WhatsApp or phone about the launch.</label></div>
+            <div class="field consent"><input id="f-consent" name="consent" type="checkbox" required><div><label for="f-consent">I agree to be contacted by ev-go on WhatsApp or phone about the launch.</label><p class="msg">Please tick the box so we can contact you.</p></div></div>
             <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-            <p class="privacy">We use your details only to contact you about the ev-go launch, as per India's Digital Personal Data Protection Act, 2023. Ask us on WhatsApp to delete them any time.</p>
+            <p class="privacy">We use your details only to contact you about ev-go. Read how we handle them in <a href="#privacy">Privacy</a>.</p>
             <div><button class="btn primary" type="submit">Register interest</button></div>
           </div>
           <div class="status" role="status" aria-live="polite"></div>
@@ -247,34 +263,64 @@ footer p{margin:0}
     </div>
   </div>
 </section>
+
+<section id="privacy" class="priv">
+  <div class="wrap grid">
+    <h2 class="label">Privacy</h2>
+    <div class="body">
+      <p><strong>What we collect.</strong> The details you type into a form: name, mobile number, area, vehicle or business details, language, and the time you agreed to be contacted.</p>
+      <p><strong>Why.</strong> Only to contact you about ev-go's launch and early sign-up. We do not sell your details.</p>
+      <p><strong>Where it is kept.</strong> In a private Google Sheet that only the ev-go team can open. Google's services process it on our behalf.</p>
+      <p><strong>How long.</strong> Until you ask us to delete it, or until we no longer need it to contact you about ev-go.</p>
+      <p><strong>Your choices.</strong> Message us on WhatsApp at +91 90003 14625 or call +91 97009 53452 to see, correct or delete your details, or to stop being contacted. You can do this at any time.</p>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
   <div class="wrap">
     <p><b>ev-go</b>, Hyderabad</p>
-    <p><a href="https://wa.me/919000314625?text=Hi%20ev-go%2C%20I%20have%20a%20question">WhatsApp +91 90003 14625</a></p>
+    <p><a href="https://wa.me/919000314625?text=Hi%20ev-go%2C%20I%20have%20a%20question">WhatsApp messages +91 90003 14625</a></p>
     <p><a href="tel:+919700953452">Call +91 97009 53452</a></p>
+    <p><a href="#privacy">Privacy</a></p>
     <p>Made in Hyderabad</p>
   </div>
 </footer>
 
-<a class="wa" href="https://wa.me/919000314625?text=Hi%20ev-go%2C%20I%20want%20to%20join%20as%20a%20driver" aria-label="Chat with ev-go on WhatsApp">Chat on WhatsApp</a>
+<a class="wa" href="https://wa.me/919000314625?text=Hi%20ev-go%2C%20I%20need%20help%20joining" aria-label="Message ev-go on WhatsApp">WhatsApp</a>
 
 <script>
 document.documentElement.classList.add('js');
 
-/* Tabs */
+/* Tabs: click, plus Left/Right/Home/End with one tab stop */
 var tabs=[].slice.call(document.querySelectorAll('.tab'));
-function showTab(name){
+function showTab(name,focus){
   tabs.forEach(function(t){
     var on=t.dataset.tab===name;
     t.setAttribute('aria-selected',on?'true':'false');
+    t.tabIndex=on?0:-1;
     document.getElementById('p-'+t.dataset.tab).hidden=!on;
+    if(on&&focus)t.focus();
   });
 }
-tabs.forEach(function(t){t.addEventListener('click',function(){showTab(t.dataset.tab)})});
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){showTab(t.dataset.tab)});
+  t.addEventListener('keydown',function(e){
+    var n=null;
+    if(e.key==='ArrowRight')n=(i+1)%tabs.length;
+    else if(e.key==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;
+    else if(e.key==='Home')n=0;
+    else if(e.key==='End')n=tabs.length-1;
+    if(n!==null){e.preventDefault();showTab(tabs[n].dataset.tab,true)}
+  });
+});
 document.querySelectorAll('a[data-tab]').forEach(function(a){a.addEventListener('click',function(){showTab(a.dataset.tab)})});
 if(/^#(driver|rider|fleet)$/.test(location.hash)){showTab(location.hash.slice(1))}
+
+/* Hide the floating WhatsApp button while someone is typing in a form */
+document.addEventListener('focusin',function(e){if(e.target.closest&&e.target.closest('form'))document.body.classList.add('typing')});
+document.addEventListener('focusout',function(){document.body.classList.remove('typing')});
 
 /* Helpers */
 function cleanMobile(v){
@@ -283,15 +329,26 @@ function cleanMobile(v){
   if(d.length===11&&d.charAt(0)==='0')d=d.slice(1);
   return d;
 }
-function tooManyTries(){
+function recentSuccesses(){
   try{
-    var now=Date.now(),list=JSON.parse(localStorage.getItem('evgo_tries')||'[]').filter(function(t){return now-t<3600000});
-    if(list.length>=3)return true;
-    list.push(now);localStorage.setItem('evgo_tries',JSON.stringify(list));
-  }catch(e){}
-  return false;
+    var now=Date.now();
+    return JSON.parse(localStorage.getItem('evgo_ok')||'[]').filter(function(t){return now-t<3600000});
+  }catch(e){return []}
 }
-function setErr(field,on){field.classList.toggle('err',on)}
+function recordSuccess(){
+  try{var l=recentSuccesses();l.push(Date.now());localStorage.setItem('evgo_ok',JSON.stringify(l))}catch(e){}
+}
+function setErr(field,on){
+  var input=field.querySelector('input,select');
+  var msg=field.querySelector('.msg');
+  field.classList.toggle('err',on);
+  if(!input)return;
+  input.setAttribute('aria-invalid',on?'true':'false');
+  if(msg){
+    msg.id=input.id+'-error';
+    if(on)input.setAttribute('aria-describedby',msg.id);else input.removeAttribute('aria-describedby');
+  }
+}
 
 /* Submit */
 document.querySelectorAll('form[data-type]').forEach(function(form){
@@ -309,37 +366,39 @@ document.querySelectorAll('form[data-type]').forEach(function(form){
       setErr(f,bad);
       if(bad){ok=false;if(!firstBad)firstBad=el}
     });
-    var consent=form.querySelector('input[name=consent]');
-    if(consent&&!consent.checked){status.className='status bad';status.textContent='Tick the box to agree to be contacted.'}
     if(!ok){if(firstBad)firstBad.focus();return}
 
-    var data={type:form.dataset.type,page:location.href,
+    var data={type:form.dataset.type,page:location.href,consent:'yes',notice:'v1',
       utm_source:new URLSearchParams(location.search).get('utm_source')||'',
       utm_medium:new URLSearchParams(location.search).get('utm_medium')||''};
     new FormData(form).forEach(function(v,k){if(k!=='consent')data[k]=String(v).trim().slice(0,200)});
     data.mobile=cleanMobile(data.mobile);
 
     if(data.website){status.className='status ok';status.textContent="You're on the list. We'll WhatsApp you before launch.";return} /* honeypot */
-    if(tooManyTries()){status.className='status bad';status.textContent='Too many tries. Please wait an hour or message us on WhatsApp.';return}
+    if(recentSuccesses().length>=5){status.className='status bad';status.textContent='You have already signed up a few times. Please message or call us instead.';return}
 
     btn.disabled=true;var label=btn.textContent;btn.textContent='Sending';
+    var ctl=new AbortController(),timer=setTimeout(function(){ctl.abort()},15000);
     try{
       /* Apps Script web app that saves sign-ups to Google Sheets (see SETUP.md) */
-      var res=await fetch('https://script.google.com/macros/s/AKfycby2r_YG4OmbcLa_ZYXqsnTus9Ty8ZsEoKFZPXVHFIWu685k1UtIK7uCmqgCNRFJlUOC/exec',{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
+      var res=await fetch('https://script.google.com/macros/s/AKfycby2r_YG4OmbcLa_ZYXqsnTus9Ty8ZsEoKFZPXVHFIWu685k1UtIK7uCmqgCNRFJlUOC/exec',{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data),signal:ctl.signal});
       var out=await res.json();
       if(out.ok){
+        recordSuccess();
         status.className='status ok';status.textContent=out.message||"You're on the list. We'll WhatsApp you before launch.";
         form.reset();
         if(data.type==='driver'){
           after.innerHTML='<a class="btn" href="https://wa.me/919000314625?text='+encodeURIComponent('Hi ev-go, I just signed up as a driver. My name is '+data.name+' and I drive in '+data.area+'.')+'">Message us on WhatsApp</a>';
         }
       }else{
-        status.className='status bad';status.textContent=out.message||'Something went wrong. Message us on WhatsApp instead.';
+        status.className='status bad';status.textContent=out.message||'Something went wrong. Please try again or message us on WhatsApp.';
+        after.innerHTML='<a class="btn" href="https://wa.me/919000314625?text=Hi%20ev-go%2C%20I%20need%20help%20joining">Message us on WhatsApp</a>';
       }
     }catch(err){
-      status.className='status bad';status.textContent='Could not send. Check your internet and try again, or message us on WhatsApp.';
+      status.className='status bad';status.textContent='Could not send. Check your internet and try again, or message or call us. Your answers are still here.';
+      after.innerHTML='<a class="btn" href="https://wa.me/919000314625?text=Hi%20ev-go%2C%20I%20need%20help%20joining">Message us on WhatsApp</a>';
     }
-    btn.disabled=false;btn.textContent=label;
+    clearTimeout(timer);btn.disabled=false;btn.textContent=label;
   });
 });
 </script>
